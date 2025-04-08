@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>journaljoy</title>
+    <link rel="stylesheet" href="css/naliyah.css">
+</head>
+
+<body>
+
+ <!-- Navbar -->
+ <nav class="navbar">
+    <div class="logo">Journal<span class="highlight">Joy</span></div>
+    <!-- Logo -->
+ 
+    <!-- Menu Items in Separate Containers -->
+    <div class="menu-container">
+        <div class="menu-individual"><a href="index2.html">Stress and Anxiety</a></div>
+        <div class="menu-individual"><a href="index2.html">Mental Health</a></div>
+        <div class="menu-individual"><a href="index2.html">Self-Discovery</a></div>
+        <div class="menu-individual"><a href="index2.html">Improves Creativity</a></div>
+    </div>
+ </nav>
+ 
+ <section class="hero-section">
+    <div class="hero-text">
+        <h1>Welcome to Our Website</h1>
+        <p>This is a short description about our services or company. It appears on the left, while the hero image is on the right.</p>
+        <button class="cta-button">Learn More</button>
+    </div>
+    <img src="images/lilartsy-333oj7zFsdg-unsplash.jpg" alt="Hero Image" class="hero-image">
+</section>
+
+</script>
+<div class="carousel">
+    <div class="carousel-slides">
+      <div class="carousel-item">Box 1</div>
+      <div class="carousel-item">Box 2</div>
+      <div class="carousel-item">Box 3</div>
+      <!-- Add more boxes as needed -->
+    </div>
+    <button class="carousel-prev">Previous</button>
+    <button class="carousel-next">Next</button>
+  </div>
+
+<script>
+const slides = document.querySelectorAll('.carousel-item');
+const slidesWrapper = document.querySelector('.carousel-slides');
+const prevButton = document.querySelector('.carousel-prev');
+const nextButton = document.querySelector('.carousel-next');
+
+let currentSlide = 0;
+
+function showSlide(slideIndex) {
+  slidesWrapper.style.transform = `translateX(-${slideIndex * 100}%)`;
+}
+
+nextButton.addEventListener('click', () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+});
+
+prevButton.addEventListener('click', () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,665 @@
+
+    * { 
+        scroll-behavior: smooth;
+    }
+
+   
+   /* mobile*/
+
+    @media (max-width: 800px) {
+    }
+
+   /*destop*/
+
+   @media (min-width: 801px) {
+   }
+
+   @font-face {
+    font-family: 'Tanklager-Original';
+    src: url('/fonts/Tanklager-Original.woff') format('woff'),
+        url('/fonts/Tanklager-Original.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    img {
+    width: 100%;
+    height: auto;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        padding-left: 20px; /* Adds spacing from the left edge */
+        min-height: 100vh;
+    }
+
+    .logo {
+        font-size: 1.8rem; /* Makes text bigger */
+        font-weight: bold;
+        color: red;
+        justify-content: space-between; /* Puts logo on left, links on right */
+    }
+    
+    /* Navbar Container */
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Even spacing */
+        background-color: white;
+        padding: 20px 40px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        max-width: 1100px;
+        margin: 20px auto; /* Center the navbar */
+    }
+
+
+    /* Menu Container */
+    .menu-container {
+        display: flex;
+        gap: 20px; /* Space between items */
+        margin-left: auto; /* Moves the menu to the right */
+        padding-left: -3%;
+    }
+
+    /* Menu Items with Individual Containers */
+    .menu-individual {
+        text-decoration: none;
+        font-size: 16px;
+        color: #e63946;
+        font-weight: 500;
+        padding: 10px 20px;
+        background-color: white; /* Background color for each item */
+        border-radius: 20px;
+        border: 1px solid #ddd; /* Light border */
+        transition: all 0.3s ease;
+    }
+
+    /* Hover Effect */
+    .menu a:hover {
+        background-color: #f4a261;
+        color: white;
+        border-color: #f4a261;
+    }
+
+/* Set width for mobile/smaller screen size. */
+  /* I set it big here so I don't have to shrink the screen so much */
+  /* for testing purposes */
+  @media screen and (max-width: 1100px) {
+    header {
+      display: grid;
+      grid-template-areas:
+        "title   title   hamburger"
+        "nav     nav     nav";
+    }
+  
+    h1 {
+      grid-area: title;
+    }
+  
+    .menu a {
+      text-decoration: none;
+      color: black;
+    }
+  
+    .menu-btn {
+      display: none;
+    }
+  
+    .menu-icon {
+      grid-area: hamburger;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      padding: 30px 20px 30px 0;
+      position: relative;
+      user-select: none;
+      visibility: visible;
+    }
+  
+    .navicon {
+      background: #333;
+      display: block;
+      height: 2px;
+      width: 18px;
+      position: relative;
+    }
+  
+    .navicon:before {
+      top: 5px;
+    }
+  
+    .navicon:after {
+      top: -5px;
+    }
+  
+    .navicon:before,
+    .navicon:after {
+      background: #333;
+      display: block;
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      transition: all 0.2s ease-out;
+    }
+  
+    .menu {
+      grid-area: nav;
+      max-width: unset;
+      max-height: 0;
+      transition: max-height 0.2s ease-out;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .menu a {
+      padding: 20px 20px;
+      border-right: 1px solid #f4f4f4;
+      background-color: #eee;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .menu-btn:checked ~ .menu {
+      max-height: 240px;
+    }
+  
+    .menu-btn:checked ~ .menu-icon .navicon {
+      background: transparent;
+    }
+  
+    .menu-btn:checked ~ .menu-icon .navicon:before {
+      transform: rotate(-45deg);
+    }
+  
+    .menu-btn:checked ~ .menu-icon .navicon:after {
+      transform: rotate(45deg);
+    }
+  
+    .menu-btn:checked ~ .menu-icon .navicon:before,
+    .menu-btn:checked ~ .menu-icon .navicon:after {
+      top: 0;
+    }
+  }
+
+    .hero-section {
+        display: flex; /* Use Flexbox */
+        align-items: center; /* Aligns items vertically */
+        justify-content: space-between; /* Spaces items apart */
+        gap: 20px; /* Space between text and image */
+        background-color: #ffcc00; /* Background color for hero section */
+        padding: 40px;
+        border-radius: 10px;
+    }
+    
+    .hero-text {
+        max-width: 600px; /* Control text width */
+    }
+
+    .cta-button {
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    
+    .cta-button:hover {
+        background-color: #555;
+    }
+    
+    .hero-image {
+        width: 400px; /* Adjust image size */
+        height: auto;
+        border-radius: 10px; /* Optional rounded corners */
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-section {
+            flex-direction: column; /* Stack elements vertically on smaller screens */
+            text-align: center;
+        }
+    
+        .hero-image {
+            width: 100%; /* Make the image take full width */
+            max-width: 300px;
+        }
+    }
+    
+    .features-section {
+        display: flex; /* Use Flexbox */
+        align-items: center; /* Align text and images vertically */
+        justify-content: space-between; /* Space between text and images */
+        gap: 30px; /* Space between sections */
+        padding: 40px;
+        background-color: #ffffff; /* Background color */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .features-text {
+        max-width: 500px; /* Control text width */
+    }
+    
+    .features-images {
+        display: flex;
+        flex-direction: column; /* Stack images vertically */
+        gap: 20px; /* Space between images */
+    }
+    
+    .feature-image {
+        width: 300px; /* Adjust size */
+        height: auto;
+        border-radius: 10px; /* Optional rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .features-section {
+            flex-direction: column; /* Stack elements vertically */
+            text-align: center;
+        }
+    
+        .features-images {
+            flex-direction: row; /* Display images side by side on smaller screens */
+            justify-content: center;
+        }
+    
+        .feature-image {
+            width: 45%; /* Adjust image width for mobile */
+        }
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    
+    .content {
+        padding: 50px 20px;
+        text-align: left; /* Aligns text to the left */
+    }
+    
+    p {
+        font-size: 1.2rem;
+        color: #555;
+        text-align: left; /* Ensures all paragraphs are left-aligned */
+        line-height: 1.8; /* Increases spacing between lines */
+        margin-bottom: 20px; /* Adds space between paragraphs */
+    }
+
+    h1 {
+        font-family: "Tanklager-Original";
+        font-size: 200%;
+        color: #555;
+        text-align: left; /* Ensures all paragraphs are left-aligned */
+        margin-bottom: 20px; /* Adds space between paragraphs */
+        margin-top: 10%;
+        line-height: 0.8;
+    }
+
+    .buttons-section {
+        display: flex; /* Use Flexbox to align buttons across */
+        justify-content: center; /* Center align */
+        gap: 20px; /* Space between buttons */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        margin-top: 20px;
+    }
+    
+    .square-button {
+        width: 200px; /* Equal width */
+        height: 200px; /* Equal height to make them square */
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 10px; /* Optional rounded corners */
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: background 0.3s;
+    }
+    
+    .square-button:hover {
+        background-color: #555;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .buttons-section {
+            flex-direction: column; /* Stack buttons on small screens */
+            align-items: center;
+        }
+    }
+    
+
+    .container {
+        display: flex; /* Flexbox layout */
+        align-items: center; /* Aligns text and image vertically */
+        gap: 20px; /* Space between text and image */
+        justify-content: center; /* Center horizontally */
+        margin: 4%;
+    }
+    
+    .text-container1 {
+        background-color: lightblue; /* Colored container behind text */
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 900px; /* Limits width */
+        color: #333; /* Text color */
+        }
+
+        @media (min-width: 768px) {
+        .text-container1 {
+        order: 2;
+        }
+    }
+    
+    .text-container2 {
+        background-color: lightblue; /* Colored container behind text */
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 900px; /* Limits width */
+        color: #333; /* Text color */
+        }
+
+         @media (min-width: 768px) {
+        .text-container2 {
+        order: 4;
+        }
+    }
+    
+    .text-container3 {
+        background-color: lightblue; /* Colored container behind text */
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 900px; /* Limits width */
+        color: #333; /* Text color */
+        }
+
+        @media (min-width: 768px) {
+        .text-container3 {
+        order: 6;
+        }
+    }
+    
+
+    .text-container4 {
+        background-color: lightblue; /* Colored container behind text */
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 900px; /* Limits width */
+        color: #333; /* Text color */
+        }
+
+        @media (min-width: 768px) {
+        .text-container4 {
+        order: 7;
+        }
+    }
+    
+    
+    .item1-image {
+        width: 400px; /* Adjust image size */
+        height: auto;
+        border-radius: 8px; /* Optional: Rounded corners */
+        }
+
+        @media (min-width: 768px) {
+        .item1-image{
+        order: 1;
+        }
+    }
+
+    .item2-image {
+        width: 400px; /* Adjust image size */
+        height: auto;
+        border-radius: 8px; /* Optional: Rounded corners */
+        }
+
+        @media (min-width: 768px) {
+        .item2-image{
+        order: 3;
+        }
+    }
+
+    .item3-image {
+        width: 400px; /* Adjust image size */
+        height: auto;
+        border-radius: 8px; /* Optional: Rounded corners */
+    }
+
+        @media (min-width: 768px) {
+        .item3-image{
+        order: 5;
+        }
+    }
+    .item4-image {
+        width: 400px; /* Adjust image size */
+        height: auto;
+        border-radius: 8px; /* Optional: Rounded corners */
+    }
+
+         @media (min-width: 768px) {
+        .item4-image{
+        order: 6;
+        }
+    }
+
+    /* Media query for mobile screens */
+    @media (max-width: 768px) {
+        .container {
+        /* Stack the elements vertically */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the elements horizontally */
+    }
+    }
+    
+    .heading-container {
+        display: flex; /* Align number and heading side by side */
+        align-items: center;
+        gap: 10px; /* Space between circle and heading */
+    }
+    
+    .number-circle {
+        width: 40px;
+        height: 40px;
+        background-color: #ff5733; /* Circle color */
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%; /* Makes it a circle */
+    }
+    
+    /* Tab navigation */
+    .tab-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 15px;
+        border-radius: 15px;
+        margin: 20px auto;
+        width: 100%;
+    }
+
+    /* Tab buttons */
+    .tab-button {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        background: rgba(100, 50, 50, 0.3);
+        border: none;
+        padding: 15px 25px;
+        font-size: 16px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+        background: rgba(100, 50, 50, 0.8);
+        color: white;
+    }
+
+    /* Content container */
+    .content-container {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    /* Tab content */
+    .tab-content {
+        display: none;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    /* Show active content */
+    .tab-content.active {
+        display: block;
+    }
+
+    /* Carousel Container */
+.carousel-container {
+    width: 90%;
+    max-width: 1100px;
+}
+
+/* Swiper Slide */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Box Styling */
+.box {
+    width: 180px;
+    height: 180px;
+    background: #e63946;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Swiper Navigation & Pagination */
+.swiper-button-next,
+.swiper-button-prev {
+    color: black;
+}
+
+.swiper-pagination {
+    bottom: 10px !important;
+}
+
+.carousel {
+    width: 80%; /* Adjust as needed */
+    margin: 20px auto;
+    overflow: hidden; /* Hide the scrollbar */
+  }
+  
+  .carousel-slides {
+    display: flex; /* Arrange slides horizontally */
+    transition: transform 0.5s ease; /* Add smooth transition */
+  }
+  
+  .carousel-item {
+    flex-shrink: 0; /* Prevent items from shrinking */
+    width: 100%; /* Make items fill the width */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 20px; /* Add some padding */
+    background-color: #f0f0f0; /* Add a background color */
+    text-align: center; /* Center the text */
+  }
+  
+  .carousel-prev,
+  .carousel-next {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .carousel-prev:hover,
+  .carousel-next:hover {
+    background-color: #3e8e41;
+  }
+
+  .question-carousel {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.question-slide {
+    display: none;
+    padding: 20px;
+}
+
+.active {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: #555;
+}
+
+
+
+
+
+
